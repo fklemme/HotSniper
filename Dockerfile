@@ -2,11 +2,9 @@ FROM ubuntu:16.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install old GCC version and set up links
-RUN apt-get update && apt-get install -y g++-4.8 && \
+RUN apt-get update && apt-get install -y g++ g++-4.8 && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 100 && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 100 && \
-    update-alternatives --install /usr/bin/cc  cc  /usr/bin/gcc     100 && \
-    update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++     100
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 100
 
 # Install Sniper
 RUN apt-get update && apt-get install -y \
