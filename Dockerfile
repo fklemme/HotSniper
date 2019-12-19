@@ -25,6 +25,8 @@ RUN apt-get update && apt-get install -y \
     pkg-config gettext
 RUN tar -xf benchmarks.tar.gz
 WORKDIR /HotSniper/HotSniper/benchmarks
+ADD cpu2006_dvd /cpu2006_dvd
+RUN ./install_cpu2006 /cpu2006_dvd
 RUN make -j 8
 # Install Hotspot
 WORKDIR /HotSniper/HotSniper/hotspot
