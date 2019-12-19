@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     pkg-config gettext
 RUN tar -xf benchmarks.tar.gz
 WORKDIR /HotSniper/HotSniper/benchmarks
+# Copy cpu2006 files
 ADD cpu2006_dvd /cpu2006_dvd
 RUN ./install_cpu2006 /cpu2006_dvd
 RUN make -j 8
